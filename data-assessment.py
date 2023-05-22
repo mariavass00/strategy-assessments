@@ -22,21 +22,13 @@ extraTime = 0
 if st.button("Animate"):
 
     if mode == "Plotly":
-        fig1 = px.scatter(data,x="x",y="y")
-        drawn_fig1 = st.plotly_chart(fig1,use_container_width = True)
-        for i in range(FPS*animTime):
-            frameStartTime = time.time()
-            X = X +1.0/FPS
-            Y = Y +1.0/FPS
-            data = pd.DataFrame({"x":X,"y":Y})
-            frameDrawTime = time.time()
-            fig1 = px.scatter(data,x="x",y="y")
-            drawn_fig1.plotly_chart(fig1,use_container_width = True)
-            frameEndTime = time.time()
-            try:
-                time.sleep(1/FPS-(frameEndTime-frameStartTime))
-            except:
-                time.sleep(1/FPS)
+      df = pd.DataFrame(dict(
+      r=[1, 5, 2, 2, 3],
+      theta=['processing cost','mechanical properties','chemical stability',
+           'thermal stability', 'device integration']))
+      fig = px.line_polar(df, r='r', theta='theta', line_close=True)
+      fig.update_traces(fill='toself')
+      fig.show()
 
     if mode == "Altair":
         fig1 = alt.Chart(data).mark_point().encode(x="x",y="y")
