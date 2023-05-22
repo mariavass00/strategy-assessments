@@ -22,13 +22,13 @@ extraTime = 0
 if st.button("Animate"):
 
     if mode == "Plotly":
+     
       df = pd.DataFrame(dict(
-      r=[1, 5, 2, 2, 3],
-      theta=['processing cost','mechanical properties','chemical stability',
+             r=[1, 5, 2, 2, 3],
+        theta=['processing cost','mechanical properties','chemical stability',
            'thermal stability', 'device integration']))
-      fig = px.line_polar(df, r='r', theta='theta', line_close=True)
-      fig.update_traces(fill='toself')
-      fig.show()
+        fig = px.line_polar(df, r='r', theta='theta', line_close=True)
+        fig.show()  
 
     if mode == "Altair":
         fig1 = alt.Chart(data).mark_point().encode(x="x",y="y")
