@@ -16,5 +16,5 @@ def radar_chart(val):
     st.write(fig)
 
 if __name__ == '__main__':
-val = st.slider('Select value',0,10,1)
-radar_chart(val)
+    val = st.slider('Select value',0,10,1)
+    radar_chart(val)
